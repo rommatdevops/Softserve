@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Update system') {
+            steps {
+                sh 'sudo apt update'
+            }
+        }
+        stage('Install apache2') {
+            steps {
+                sh 'sudo apt install apache2'
+            }
+        }
+        stage('Run apache2') {
+            steps {
+                sh 'sudo service apache2 start'
+            }
+        }
+        stage('Read log') {
+            steps {
+                sh 'sudo ./check_apache_logs.sh'
+            }
+        }
+    }
+}
