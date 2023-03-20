@@ -1,0 +1,14 @@
+name: Show Name
+on:
+  push:
+    branches:
+      - main
+jobs:
+  show-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show Name
+        run: |
+          echo "First Name: Roma"
+          echo "Last Name: Matiakupov"
+
